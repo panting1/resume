@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>resume</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/app.css">
+		<style>
+			html,
+			body {
+				background-color: #efeff4;
+				font-family: "微软雅黑";
+			}
+			
+			.mui-bar~.mui-content .mui-fullscreen {
+				top: 44px;
+				height: auto;
+			}
+			
+			.mui-pull-top-tips {
+				position: absolute;
+				top: -20px;
+				left: 50%;
+				margin-left: -25px;
+				width: 40px;
+				height: 40px;
+				border-radius: 100%;
+				z-index: 1;
+			}
+			
+			.mui-bar~.mui-pull-top-tips {
+				top: 24px;
+			}
+			
+			.mui-pull-top-wrapper {
+				width: 42px;
+				height: 42px;
+				display: block;
+				text-align: center;
+				background-color: #efeff4;
+				border: 1px solid #ddd;
+				border-radius: 25px;
+				background-clip: padding-box;
+				box-shadow: 0 4px 10px #bbb;
+				overflow: hidden;
+			}
+			
+			.mui-pull-top-tips.mui-transitioning {
+				-webkit-transition-duration: 200ms;
+				transition-duration: 200ms;
+			}
+			
+			.mui-pull-top-tips .mui-pull-loading {
+				/*-webkit-backface-visibility: hidden;
+				-webkit-transition-duration: 400ms;
+				transition-duration: 400ms;*/
+				margin: 0;
+			}
+			
+			.mui-pull-top-wrapper .mui-icon,
+			.mui-pull-top-wrapper .mui-spinner {
+				margin-top: 7px;
+			}
+			
+			.mui-pull-top-wrapper .mui-icon.mui-reverse {
+				/*-webkit-transform: rotate(180deg) translateZ(0);*/
+			}
+			
+			.mui-pull-bottom-tips {
+				text-align: center;
+				background-color: #efeff4;
+				font-size: 15px;
+				line-height: 40px;
+				color: #777;
+			}
+			
+			.mui-pull-top-canvas {
+				overflow: hidden;
+				background-color: #fafafa;
+				border-radius: 40px;
+				box-shadow: 0 4px 10px #bbb;
+				width: 40px;
+				height: 40px;
+				margin: 0 auto;
+			}
+			
+			.mui-pull-top-canvas canvas {
+				width: 40px;
+			}
+			
+			.mui-slider-indicator.mui-segmented-control {
+				background-color: #efeff4;
+			}
+			
+			.mui-segmented-control.mui-scroll-wrapper a.mui-control-item {
+				width: 25%;
+				display: flex;
+				flex-direction: column;
+				text-align: center;
+			}
+			
+			.mui-slider-indicator .mui-icon {
+				width: auto;
+				font-size: 24px;
+			}
+			
+			#sliderSegmentedControl a.mui-control-item span {
+				border: 0;
+				line-height: 20px;
+			}
+			
+			.mui-segmented-control.mui-scroll-wrapper {
+				width: 100%;
+				background-color: white;
+				height: 50px;
+			}
+			
+			.mui-segmented-control.mui-scroll-wrapper .mui-scroll {
+				width: 100%;
+				height: 50px;
+				display: flex;
+				justify-content: center;
+				flex-direction: row;
+			}
+			
+			#skill .mui-table-view-cell a {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			
+			#sliderSegmentedControl .mui-control-item .zi{
+				padding-bottom:10px;
+			}
+			
+			/*点击全屏照片*/
+			.mui-preview-image.mui-fullscreen {
+				position: fixed;
+				z-index: 20;
+				background-color: #000;
+			}
+			.mui-preview-header,
+			.mui-preview-footer {
+				position: absolute;
+				width: 100%;
+				left: 0;
+				z-index: 10;
+			}
+			.mui-preview-header {
+				height: 44px;
+				top: 0;
+			}
+			.mui-preview-footer {
+				height: 50px;
+				bottom: 0px;
+			}
+			.mui-preview-header .mui-preview-indicator {
+				display: block;
+				line-height: 25px;
+				color: #fff;
+				text-align: center;
+				margin: 15px auto 4;
+				width: 70px;
+				background-color: rgba(0, 0, 0, 0.4);
+				border-radius: 12px;
+				font-size: 16px;
+			}
+			.mui-preview-image {
+				display: none;
+				-webkit-animation-duration: 0.5s;
+				animation-duration: 0.5s;
+				-webkit-animation-fill-mode: both;
+				animation-fill-mode: both;
+			}
+			.mui-preview-image.mui-preview-in {
+				-webkit-animation-name: fadeIn;
+				animation-name: fadeIn;
+			}
+			.mui-preview-image.mui-preview-out {
+				background: none;
+				-webkit-animation-name: fadeOut;
+				animation-name: fadeOut;
+			}
+			.mui-preview-image.mui-preview-out .mui-preview-header,
+			.mui-preview-image.mui-preview-out .mui-preview-footer {
+				display: none;
+			}
+			.mui-zoom-scroller {
+				position: absolute;
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-box-align: center;
+				-webkit-align-items: center;
+				align-items: center;
+				-webkit-box-pack: center;
+				-webkit-justify-content: center;
+				justify-content: center;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				-webkit-backface-visibility: hidden;
+			}
+			.mui-zoom {
+				-webkit-transform-style: preserve-3d;
+				transform-style: preserve-3d;
+			}
+			.mui-slider .mui-slider-group .mui-slider-item img {
+				width: auto;
+				height: auto;
+				max-width: 100%;
+				max-height: 100%;
+			}
+			.mui-android-4-1 .mui-slider .mui-slider-group .mui-slider-item img {
+				width: 100%;
+			}
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-slider-group .mui-slider-item {
+				display: inline-table;
+			}
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-zoom-scroller img {
+				display: table-cell;
+				vertical-align: middle;
+			}
+			.mui-preview-loading {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				display: none;
+			}
+			.mui-preview-loading.mui-active {
+				display: block;
+			}
+			.mui-preview-loading .mui-spinner-white {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-left: -25px;
+				margin-top: -25px;
+				height: 50px;
+				width: 50px;
+			}
+			.mui-preview-image img.mui-transitioning {
+				-webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
+				transition: transform 0.5s ease, opacity 0.5s ease;
+			}
+			@-webkit-keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+				100% {
+					opacity: 1;
+				}
+			}
+			@keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+				100% {
+					opacity: 1;
+				}
+			}
+			@-webkit-keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+				100% {
+					opacity: 0;
+				}
+			}
+			@keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+				100% {
+					opacity: 0;
+				}
+			}
+			p img {
+				max-width: 100%;
+				height: auto;
+			}
+			#offCanvasSide ul{background:none;}
+			#offCanvasSide ul a,#offCanvasSide ul p,#offCanvasSide ul span{color:#fff}
+			.hang p{margin-top: 10px;}
+			#skill img{width:70px;height:70px;border-radius: 15px;}
+			#skill .mui-media-body p:first-child{color:#333333;font-size:16px;}
+			
+		</style>
+	</head>
+
+	<body>
+		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable">
+			
+
+			<aside id="offCanvasSide" class="mui-off-canvas-left">
+				<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<div class="content">
+							<ul class="mui-table-view">
+							    <li class="mui-table-view-cell mui-media">
+							        <a href="javascript:;" style="padding:25px;">
+							            <img class="mui-media-object mui-pull-left" src="images/tou1.jpg" style="max-width:50px;height:50px;border-radius: 50%;">
+							            <div class="mui-media-body">
+							                	<p style="margin:0 0 4px 10px;font-size:16px;">Specialty</p>
+							               	<div class="icons" style="margin-left: 6px;">
+												<i data-index="1" class="mui-icon mui-icon-star-filled" style="color:yellow"></i>
+												<i data-index="2" class="mui-icon mui-icon-star-filled" style="color:yellow"></i>
+												<i data-index="3" class="mui-icon mui-icon-star-filled" style="color:yellow"></i>
+												<i data-index="4" class="mui-icon mui-icon-star-filled" style="color:yellow"></i>
+											</div>	
+							            </div>
+							        </a>
+							    </li>
+							</ul>
+				
+				
+							<ul class="mui-table-view" >
+								<li class="mui-table-view-cell">
+									<a class="mui-navigate-right">
+										<span class="mui-icon mui-icon-star-filled"></span>
+										<span class="zi">我的收藏</span>
+									</a>
+								</li>
+								<li class="mui-table-view-cell">
+									<a class="mui-navigate-right">
+										<span class="mui-icon mui-icon-flag"></span>
+										<span class="zi">我的梦想</span>
+									</a>
+								</li>
+								<li class="mui-table-view-cell">
+									<a class="mui-navigate-right">
+										<span class="mui-icon mui-icon-paperplane"></span>
+										<span class="zi">我的经历</span>
+									</a>
+								</li>
+							</ul>
+							<ul class="mui-table-view" style="margin-top: 15px;">
+								<li class="mui-table-view-cell">
+									<a class="mui-navigate-right">
+										<span class="mui-icon mui-icon-pengyouquan"></span>
+										<span class="zi">分享到</span>
+									</a>
+								</li>
+							</ul>
+							<ul class="mui-table-view" style="margin-top: 15px;display: flex;">
+								<li class="mui-table-view-cell" style="flex: 2;">
+									<a style="text-align: center;color: #FF3B30;">
+										<span class="mui-icon mui-icon-gear"></span>
+										<span class="zi">设置</span>
+									</a>
+								</li>
+								<li class="mui-table-view-cell"  style="flex: 2;">
+									<a style="text-align: center;color: #FF3B30;">
+										<span class="mui-icon mui-icon-redo"></span>
+										<span class="zi">退出</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+					</div>
+				</div>
+			</aside>
+			
+			<div class="mui-inner-wrap">
+				<!--头部-->
+				<div class="mui-bar mui-bar-nav" style="z-index: 100000;">
+					<a href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-left" style="color: #000;"></a>
+					<h1 class="mui-title">个人简历</h1>
+					<a class="mui-action-back mui-btn mui-btn-link mui-pull-right" style="color: #000;">退出</a>
+				</div>
+					
+		    
+				<!--中间内容和底部-->
+				<div id="offCanvasContentScroll" class="mui-scroll-wrapper mui-content">
+					<div id="slider" class="mui-slider mui-fullscreen" style="padding-bottom: 50px;">
+
+						<div class="mui-slider-group">
+							<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+								<div id="scroll1" class="mui-scroll-wrapper">
+									<div class="mui-scroll" id="skill">
+										
+
+									</div>
+								</div>
+							</div>
+							<div id="item2mobile" class="mui-slider-item mui-control-content">
+								<div class="mui-scroll-wrapper">
+									<div class="mui-scroll" id="project">
+										
+									</div>
+								</div>
+							</div>
+							<div id="item3mobile" class="mui-slider-item mui-control-content">
+								<div class="mui-scroll-wrapper">
+									<div class="mui-scroll" id="work">
+										
+									</div>
+								</div>
+							</div>
+							<div id="item4mobile" class="mui-slider-item mui-control-content">
+								<div class="mui-scroll-wrapper">
+									<div class="mui-scroll" id="me">
+										<div class="mui-content-padded">
+											<p>
+												<img src="images/tou.jpg" data-preview-src="" data-preview-group="1" />
+											</p>	
+										</div>
+										
+										<ul class="mui-table-view">
+											<li class="mui-table-view-cell">
+												<a class="mui-navigate-right">
+													兴趣爱好
+												</a>
+												
+											</li>
+											<li class="mui-table-view-cell">
+												<a class="mui-navigate-right">
+													更多了解
+												</a>
+											</li>
+										</ul>
+										<ul class="mui-table-view" style="margin-top:10px">
+											<li class="mui-table-view-cell mui-collapse">
+												<a class="mui-navigate-right" href="#">关于我</a>
+												<div class="mui-collapse-content">
+													<div id="slider" class="mui-slider">
+														<div class="mui-slider-group mui-slider-loop">
+															
+															<div class="mui-slider-item">
+																<a href="#">
+																	<img src="images/about3.png">
+																</a>
+															</div>
+															
+															<!-- 第一张 -->
+															<div class="mui-slider-item">
+																<a href="#">
+																	<img src="images/about0.jpg">
+																</a>
+															</div>
+															<!-- 第二张 -->
+															<div class="mui-slider-item">
+																<a href="#">
+																	<img src="images/about1.jpg">
+																</a>
+															</div>
+															<!-- 第三张 -->
+															<div class="mui-slider-item">
+																<a href="#">
+																	<img src="images/about2.png">
+																</a>
+															</div>
+															<!-- 第四张 -->
+															<div class="mui-slider-item">
+																<a href="#">
+																	<img src="images/about3.png">
+																</a>
+															</div>
+															<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+															<div class="mui-slider-item mui-slider-item-duplicate">
+																<a href="#">
+																	<img src="images/about0.jpg">
+																</a>
+															</div>
+														</div>
+														<div class="mui-slider-indicator">
+															<div class="mui-indicator mui-active"></div>
+															<div class="mui-indicator"></div>
+															<div class="mui-indicator"></div>
+															<div class="mui-indicator"></div>
+														</div>
+													</div>
+												</div>
+											</li>
+											
+										</ul>
+										<ul class="mui-table-view" style="margin-top: 10px;">
+											<li class="mui-table-view-cell">
+												<a style="text-align: center;color: #FF3B30;">
+													退出登录
+												</a>
+											</li>
+										</ul>
+										
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+							<div class="mui-scroll">
+								<a class="mui-control-item mui-active" href="#item1mobile">
+									<span class="mui-icon mui-icon-gear"></span>
+									<span class="zi">技能</span>
+								</a>
+								<a class="mui-control-item" href="#item2mobile">
+									<span class="mui-icon mui-icon-bars"></span>
+									<span class="zi">项目</span>
+								</a>
+								<a class="mui-control-item" href="#item3mobile">
+									<span class="mui-icon mui-icon-paperplane"></span>
+									<span class="zi">经历</span>
+								</a>
+								<a class="mui-control-item" href="#item4mobile">
+									<span class="mui-icon mui-icon-contact"></span>
+									<span class="zi">我</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<script src="js/mui.js"></script>
+		<script src="js/mui.pullToRefresh.js"></script>
+		<script src="js/mui.pullToRefresh.material.js"></script>
+		<script src="js/mui.zoom.js"></script>
+		<script src="js/mui.previewimage.js"></script>
+		<script>
+			mui.init();
+			mui.init({
+				swipeBack:true //启用右滑关闭功能
+			});
+			mui.previewImage();
+			
+			(function($) {
+				//阻尼系数
+				var deceleration = mui.os.ios ? 0.003 : 0.0009;
+				$('.mui-scroll-wrapper').scroll({
+					bounce: false,
+					indicators: false, //是否显示滚动条
+					deceleration: deceleration
+				});
+				
+			})(mui);
+			
+			/***********************************引入数据*************************************/
+			
+			tabjson();
+
+			function tabjson() {
+				/*************skill********************/
+				mui.init();
+				mui.ajax('http://1.821776050.applinzi.com/www/mock/skill.json', {
+
+					dataType: 'json', //服务器返回json格式数据
+					type: 'get', //HTTP请求类型
+					timeout: 10000, //超时时间设置为10秒；
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					success: function(data) {
+						var skill = document.getElementById('skill');
+						var len = data.length;
+						var str = '';
+						for(var i = 0; i < len; i++) {
+							str+='<div class="title" style="height: 50px;line-height: 50px;margin-left:10px;font-size:17px;">'+data[i].category+'</div><ul class="mui-table-view"><li class="mui-table-view-cell mui-media"><img class="mui-media-object mui-pull-left" src="'+data[i].classify[0].img+'">';
+							str+='<div class="mui-media-body"><p>'+data[i].classify[0].edit+'</p><p>'+data[i].classify[0].info+'</p></div></a></li>';
+							str+='<li class="mui-table-view-cell mui-media"><img class="mui-media-object mui-pull-left" src="'+data[i].classify[1].img+'"><div class="mui-media-body"><p>'+data[i].classify[1].edit+'</p><p>'+data[i].classify[1].info+'</p></div></a></li>';
+							str+='<li class="mui-table-view-cell mui-media"><img class="mui-media-object mui-pull-left" src="'+data[i].classify[2].img+'"><div class="mui-media-body"><p>'+data[i].classify[2].edit+'</p><p>'+data[i].classify[2].info+'</p></div></a></li></ul>';
+						}
+						skill.innerHTML = str;
+					},
+					error: function(xhr, type, errorThrown) {
+						//异常处理；
+						console.log(type);
+					}
+				});
+			
+			
+				/*************project********************/				
+				mui.ajax('http://1.821776050.applinzi.com/www/mock/project.json', {				
+					dataType: 'json', //服务器返回json格式数据
+					type: 'get', //HTTP请求类型
+					timeout: 10000, //超时时间设置为10秒；
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					success: function(data) {
+						
+						var project = document.getElementById('project');
+						var len = data.length;
+						var str = '';
+						for(var i = 0; i < len; i++) {
+							str += '<div class="mui-card"><div class="mui-card-header mui-card-media" style="height:70px"><img src="' + data[i].img1 + '" style="width: 50px;height: 50px;border-radius: 5px;">';
+							str += '<div class="mui-media-body"><p style="margin:5px 0 10px 15px">' + data[i].category + '</p><p style="margin-left:15px;">' + data[i].person + '</p></div></div>';
+
+							str += '<div class="mui-card-content mui-content-padded"><img src="' + data[i].img + '" style="height:230px;" data-preview-src="" data-preview-group="1"/></div><ul class="mui-table-view"><li class="mui-table-view-cell mui-collapse"><a class="mui-navigate-right" href="#">下拉了解更多</a>';
+
+							str +='<div class="mui-collapse-content"><p>'+data[i].description+'</p><p>'+data[i].tech+'</p><p>'+data[i].detail+'</p></div></li></ul></div>' ;
+						}
+						project.innerHTML = str;
+					},
+					error: function(xhr, type, errorThrown) {
+						//异常处理；
+						console.log(type);
+					}
+				});
+				
+				mui.ajax('http://1.821776050.applinzi.com/www/mock/work1.json', {
+				
+					dataType: 'json', //服务器返回json格式数据
+					type: 'get', //HTTP请求类型
+					timeout: 10000, //超时时间设置为10秒；
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					success: function(data) {
+						var work1= document.getElementById('work');
+						var len = data.length;
+						var str = '';
+						for(var i = 0; i < len; i++) {
+							str += '<div class="mui-card"><div class="mui-card-header mui-card-media" style="height:70px"><img src="' + data[i].img1 + '" style="width: 50px;height: 50px;border-radius: 5px;">';
+							str += '<div class="mui-media-body"><p style="margin:5px 0 10px 0">' + data[i].category + '</p><p>' + data[i].name + '</p></div></div>';
+
+							str += '<div class="mui-card-content mui-content-padded"><img src="' + data[i].img + '" data-preview-src="" data-preview-group="1" /></div><div class="mui-card-footer hang">';
+
+							str += '<p>' + data[i].time + '</p><p>' + data[i].projects + '</p><p>' + data[i].more + '</p></div></div>';
+						}
+						work1.innerHTML = str;
+					},
+					error: function(xhr, type, errorThrown) {
+						//异常处理；
+						console.log(type);
+					}
+				});
+			}
+
+		</script>
+	</body>
+
+</html>

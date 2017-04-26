@@ -1,0 +1,29 @@
+[
+	{
+		"img1":"images/pro1.jpg",
+		"img":"images/pro1-1.jpg",
+		"category":"项目名称: 企业网站——魅力惠",
+		"description":"项目介绍: 模拟魅力惠网站的实现,完善网站性能,增加网页功能",
+		"detail":"完成时间: 耗时2个月,主要处理前端页面及程序嵌套，并未要求移动端适配，故该网站只适应于PC端应用",
+		"person":"团队成员: 设计1人,前端2人,开发人员3人",
+		"tech":"运用技术: Html、Css、ajax等"
+	},
+	{
+		"img1":"images/pro2.jpg",
+		"img":"images/pro2-2.jpg",
+		"category":"项目名称: 服务平台-车来车往",
+		"description":"项目介绍: 打造便捷生活,随时随地定位自己的所在地,实现全国的下载量第一",
+		"detail":"完成时间:  耗时1个月,长期维护，功能迭代，包括平台整体UI改进以及功能模块的增加与性能的优化",
+		"person":"团队成员: 设计1人,前端2人,开发人员2人",
+		"tech":"运用技术: Html、Css2、Javascript、Jquery、h5+等"
+	},
+	{
+		"img1":"images/pro3.jpg",
+		"img":"images/pro3-3.jpg",
+		"category":"项目名称: 移动平台——政教通",
+		"description":"项目介绍: 儿童健康成长护航者",
+		"detail":"完成时间: 项目初建耗时1个半月，主要包括数据支撑平台的建设、移动端Hybrid模式的应用及开发",
+		"person":"团队成员: 设计1人,前端1人,开发人员2人",
+		"tech":"运用技术: Html5、Css3、Jquery、MUI、Zepto等"
+	}
+]

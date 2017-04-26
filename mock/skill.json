@@ -1,0 +1,102 @@
+[
+    {
+        "category": "规范-Edit",
+        "classify": [
+            {
+                "img": "images/h5.gif",
+                "edit": "HTML4、HTML5",
+                "info": "告知浏览器的解析器用什么文档标准解析这个文档,所以在文档的开头要写上文档类型声明"
+            },
+            {
+                "img": "images/es6.png",
+                "edit": "ES5、ES6",
+                "info": "es5,es6 都是对ES规范的补充,es6 更多的是在nodejs组件中去使用"
+            },
+            {
+                "img": "images/cmd.png",
+                "edit": "CommonJS、CMD、AMD",
+                "info": "所有代码都运行在模块作用域，不会污染全局作用域,模块加载的顺序，按照其在代码中出现的顺序"
+            }
+        ]
+    },
+    {
+        "category": "框架-Frame",
+        "classify": [
+            {
+                "img": "images/jq.png",
+                "edit": "Jquery、Zepto",
+                "info": "前者针对pc端的框架，后者针对移动端的框架"
+            },
+            {
+                "img": "images/anlar.png",
+                "edit": "AngularJS、React",
+                "info": "AngularJS通过为开发者呈现一个更高层次的抽象来简化应用的开发"
+            },
+            {
+                "img": "images/bot.png",
+                "edit": "Mui、bootstrap",
+                "info": "Bootstrap是基于HTML、CSS、JS的,它简洁灵活,使得 Web开发更加快捷"
+            }
+        ]
+    },
+    {
+        "category": "类库-Class",
+        "classify": [
+            {
+                "img": "images/swiper.png",
+                "edit": "Swiper",
+                "info": "前者针对pc端的框架，后者针对移动端的框架"
+            },
+            {
+                "img": "images/iscroll.png",
+                "edit": "Iscroll",
+                "info": "在微信界面中有了此事件，这样的话上滑和下滑更加流畅"
+            },
+            {
+                "img": "images/mui.png",
+                "edit": "EasyUi",
+                "info": "jQuery EasyUI帮助web开发者更轻松的打造出功能丰富并且美观的UI界面"
+            }
+        ]
+    },
+    {
+        "category": "布局-Layout",
+        "classify": [
+            {
+                "img": "images/flex.png",
+                "edit": "Flex",
+                "info": "弹性布局,在页面布局中不用设置固定宽高也可适应"
+            },
+            {
+                "img": "images/fix.png",
+                "edit": "Fixed,Fluid",
+                "info": "再要用在pc端,做网页时候的使用固定布局和流式布局"
+            },
+            {
+                "img": "images/res.png",
+                "edit": "Responsive",
+                "info": "响应式布局针对不同的手机端尺寸来来分别变化其宽高"
+            }
+        ]
+    },
+    {
+        "category": "程序-Routine",
+        "classify": [
+            {
+                "img": "images/js-yuyan.png",
+                "edit": "JS原生",
+                "info": "JavaScript是 Web的编程语言。现代的 HTML页面都使用 JS"
+            },
+            {
+                "img": "images/c.png",
+                "edit": "C语言，C++",
+                "info": "C语言是一门通用计算机编程语言,能以简易的方式编译"
+            },
+            {
+                "img": "images/jq-yuyan.png",
+                "edit": "Jquery",
+                "info": "Jquery是基于原生js产生的框架,使用jq可以简化代码量"
+            }
+        ]
+    }
+]

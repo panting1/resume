@@ -1,0 +1,22 @@
+[
+	{	
+		"img1":"images/work1.jpg",
+		"img":"images/work1-1.jpg",
+		"category":"公司性质: 民营企业",
+		"name":"公司名称: 宿州高新区",
+		"time":"like",
+		"projects":"about",
+		"more":"more"
+	},
+	{
+		"img1":"images/work2.jpg",
+		"img":"images/work2-2.jpg",
+		"category":"公司性质: 民营企业",
+		"name":"公司名称:上海国位信息科技有限公司",
+		"time":"like",
+		"projects":"about",
+		"more":"more"
+	}
+]
+
+
